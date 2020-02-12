@@ -4,7 +4,7 @@ import (
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 
-	"./handler"
+	"go-api-server/handler"
 )
 
 func main() {
@@ -16,7 +16,7 @@ func main() {
 	e.Use(middleware.Recover())
 
 	// Routes
-	e.GET("/", handler.Hello())
+	e.GET("/", handler.Hello)
 
 	// Start server
 	e.Logger.Fatal(e.Start(":8080"))
