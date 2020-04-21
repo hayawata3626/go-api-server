@@ -1,22 +1,12 @@
-
 test:
-    driver: postgres
-    open: user=liam dbname=tester sslmode=disable
+  driver: mymysql
+  open: $DATABASE_URL
+  # open: tcp:$DB_HOST:3306*kanban/$DB_USER/$DB_PASSWORD
 
 development:
-    driver: mymysql
-    open: tcp:localhost:3306*kanban/workuser/Passw0rd!
+  driver: mymysql
+  open: $DATABASE_URL
 
 production:
-    driver: postgres
-    open: user=liam dbname=tester sslmode=verify-full
-
-customimport:
-    driver: customdriver
-    open: customdriver open
-    import: github.com/custom/driver
-    dialect: mysql
-
-environment_variable_config:
-    driver: $DB_DRIVER
-    open: $DATABASE_URL
+  driver: mymysql
+  open: $DATABASE_URL
