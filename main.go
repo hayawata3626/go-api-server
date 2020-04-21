@@ -6,6 +6,7 @@ import (
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jmoiron/sqlx"
+	"github.com/joho/godotenv"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 
@@ -40,8 +41,11 @@ func createMux() *echo.Echo {
 }
 
 func connectDB() *sqlx.DB {
-	dsn := os.Getenv("DSN")
-	db, err := sqlx.Open("mysql", dsn)
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal(err)
+	}
+	db, err := sqlx.Open("mysql", os.Getenv("DB_ROLE")+":"+os.Getenv("DB_PASSWORD")+"@/"+os.Getenv("DB_NAME"))
 	if err != nil {
 		e.Logger.Fatal(err)
 	}
