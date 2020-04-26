@@ -45,7 +45,7 @@ func connectDB() *sqlx.DB {
 	if err != nil {
 		log.Fatal(err)
 	}
-	db, err := sqlx.Open("mysql", os.Getenv("DB_ROLE")+":"+os.Getenv("DB_PASSWORD")+"@/"+os.Getenv("DB_NAME"))
+	db, err := sqlx.Open("mysql", os.Getenv("DB_USER")+":"+os.Getenv("DB_PASSWORD")+"@/"+os.Getenv("DB_NAME"))
 	if err != nil {
 		e.Logger.Fatal(err)
 	}

@@ -3,7 +3,10 @@
 ## make `.env` file on project root directory
 
 ```
-DATABASE_URL=tcp:${db-host}:3306*${db-name}/${db-user}/${db-password}
+DB_USER=
+DB_PASSWORD=
+DB_NAME=
+DATABASE_URL=tcp:localhost:3306*$DB_USER/$DB_USER/$DB_PASSWORD
 ```
 
 ## Migration
