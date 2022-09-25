@@ -1,6 +1,6 @@
 module go-api-server
 
-go 1.13
+go 1.19
 
 require (
 	bitbucket.org/liamstask/goose v0.0.0-20150115234039-8488cc47d90c // indirect
